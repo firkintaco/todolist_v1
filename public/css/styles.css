@@ -61,7 +61,7 @@ form {
 
 button {
   min-height: 50px;
-  width: 70px;
+  width: 50px;
   border-radius: 50%;
   border-color: transparent;
   background-color: #a683e3;
@@ -96,4 +96,5 @@ footer {
   color: white;
   color: rgba(0, 0, 0, 0.5);
   text-align: center;
+  padding: 10px 0;
 }

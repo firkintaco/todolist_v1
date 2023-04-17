@@ -14,18 +14,28 @@
     </div>
     <div class="box">
       <% if(itemList.length === 0) { %>
-      <p class="item">Start adding ToDo's</p>
+      <div class="item">
+        <input type="checkbox" />
+        <p>Start adding ToDo's</p>
+      </div>
       <%} else {%> <% itemList.forEach(item => { %>
-      <p class="item"><%= item %></p>
+      <div class="item">
+        <input type="checkbox" />
+        <p><%= item %></p>
+      </div>
       <% })}; %>
+      <form class="item" action="<%= formUrl %>" method="post">
+        <input
+          type="text"
+          name="newItem"
+          placeholder="New item"
+          autocomplete="off"
+        />
+        <button type="submit">+</button>
+      </form>
     </div>
     <footer class="box">
-      <form action="/" method="post">
-        <input type="text" name="newItem" />
-        <button type="submit">Add</button>
-      </form>
-      Aloita kirjoittamalla taski tekstikenttään.<br />
-      (Voit tyhjentää listan kokonaan kirjoittamalla /clear)
+      You can clear the list completely by typing /clear
     </footer>
   </body>
 </html>
