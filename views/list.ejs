@@ -5,25 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To Do List</title>
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <center>
+    <div class="box" id="heading">
       <img src="images/coffee-break.png" />
-      <h1><%= smallTitle %> ToDo List</h1>
-
-      <ul>
-        <% itemList.forEach(item => { %>
-        <li><%= item %></li>
-        <% }); %>
-      </ul>
+      <h1><%= smallTitle %></h1>
+    </div>
+    <div class="box">
+      <% if(itemList.length === 0) { %>
+      <p class="item">Start adding ToDo's</p>
+      <%} else {%> <% itemList.forEach(item => { %>
+      <p class="item"><%= item %></p>
+      <% })}; %>
+    </div>
+    <footer class="box">
       <form action="/" method="post">
         <input type="text" name="newItem" />
-        <button type="submit">Send</button>
+        <button type="submit">Add</button>
       </form>
-      <p>
-        Aloita kirjoittamalla taski tekstikenttään.<br />
-        (Voit tyhjentää listan kokonaan kirjoittamalla /clear)
-      </p>
-    </center>
+      Aloita kirjoittamalla taski tekstikenttään.<br />
+      (Voit tyhjentää listan kokonaan kirjoittamalla /clear)
+    </footer>
   </body>
 </html>

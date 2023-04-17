@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
-var itemList = ["Start your day"];
+var itemList = [];
 app.get("/", (req, res) => {
   var today = new Date();
   var dayToShow = today.toLocaleDateString("en-US", {
