@@ -10,32 +10,34 @@
   <body>
     <div class="box" id="heading">
       <img src="images/coffee-break.png" />
-      <h1><%= smallTitle %></h1>
+      <h1><%= listTitle %></h1>
     </div>
     <div class="box">
-      <% if(itemList.length === 0) { %>
-      <div class="item">
-        <input type="checkbox" />
-        <p>Start adding ToDo's</p>
-      </div>
-      <%} else {%> <% itemList.forEach(item => { %>
-      <div class="item">
-        <input type="checkbox" />
-        <p><%= item %></p>
-      </div>
-      <% })}; %>
-      <form class="item" action="<%= formUrl %>" method="post">
+      <% newListItems.forEach(item => { %>
+      <form action="/delete" method="post">
+        <div class="item">
+          <input
+            type="checkbox"
+            name="id"
+            onChange="this.form.submit()"
+            value="<%=item._id%>"
+          />
+          <p><%= item.name %></p>
+        </div>
+        <input type="hidden" name="listName" value="<%=listTitle%>" />
+      </form>
+      <% }); %>
+
+      <form class="item" action="/" method="post">
         <input
           type="text"
           name="newItem"
-          placeholder="New item"
+          placeholder="New Item"
           autocomplete="off"
         />
-        <button type="submit">+</button>
+        <button type="submit" name="list" value="<%=listTitle%>">+</button>
       </form>
     </div>
-    <footer class="box">
-      You can clear the list completely by typing /clear
-    </footer>
+    <footer class="box">&copy; Lassi Hauru</footer>
   </body>
 </html>
